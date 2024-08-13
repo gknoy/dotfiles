@@ -1,0 +1,22 @@
+#! /bin/sh
+#
+# alias flip='echo "(╯°□°）╯︵ ┻━┻"'
+#
+# requires `pip install upsidedown`
+#
+
+prefix='(╯°□°）╯︵'
+flipped='┻━┻'
+
+if [ "$*" = "(╯°□°）╯︵ ┻━┻" ]
+then
+    echo "┬─┬ノ(ಠ_ಠノ)"
+    exit 0
+fi
+
+if [ -n "$1" ]
+then
+    flipped=`echo "$*" | upsidedown`
+fi
+
+echo "${prefix} ${flipped}"

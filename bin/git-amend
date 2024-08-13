@@ -1,0 +1,17 @@
+#! /bin/bash
+# When we do a commit --amend, normally the author date is unchanged.
+# Since I want to use amending as a way to squirrel away fixes / daily work,
+# I would prefer to have the date freshened.
+
+# Prevent amend during rebase, as that nearly always is bad:
+# cf. https://news.ycombinator.com/item?id=38166144
+
+if git rev-parse --verify REBASE_HEAD >/dev/null 2>&1; then
+    printf 'Rebase in progress: commit --amend is disabled\n' >&2
+    return 1
+fi
+
+#git commit --amend --date="$(date -R)"
+
+# mac: date has no -R for RFC-2822 format
+git commit --amend --date="$(date +'%a, %d %b %Y %H:%M:%S %z')"
