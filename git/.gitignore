@@ -1,0 +1,29 @@
+# virtual environments
+env/
+venv/
+
+# pyenv settings
+.python-version
+
+# Basic extensions we don't care about
+*.orig
+*.pyc
+*~
+
+# emacs temp/backup files
+*#
+.#*
+
+.idea/
+TAGS
+
+
+# emacs temporary bits, since we have our emacs config symlinked into here
+.emacs-places
+
+# artifacts of various build/tests
+cypress/node_modules
+coverage.xml
+package-lock.json
+docker-compose.override.yml
+cypress-app.log

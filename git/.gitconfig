@@ -1,0 +1,43 @@
+[user]
+	name = Gabriel Knoy
+	email = gknoy@myriad.com
+
+[push]
+	default = simple
+
+[diff]
+	algorithm = patience
+	indentHeuristic = on
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[alias]
+    # in = log ..@{u}
+    # out = log @{u}..
+    ls = log --pretty=format:'%C(magenta)%h%Creset %C(dim)%cr%Creset\t%C(yellow)%aN%Creset %s %C(cyan)%d%Creset'
+    view = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+[core]
+	# editor = vim
+	editor = mg
+	# attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | /usr/bin/less -RFX
+	# pager = delta | /usr/bin/less -RFX
+	# pager = /usr/bin/less -RF
+
+[init]
+	templatedir = ~/.git_template
+
+# [pager]
+	# diff = diff-so-fancy | /usr/bin/less -RF #--tabs=4 -RF
+	# diff = delta | less
+	# diff = diff-highlight | less
+	# log = diff-highlight | less
+	# show = diff-highlight | less
+
+[includeIf "gitdir:~/git/personal/"]
+    path = ~/git/personal/.gitconfig
