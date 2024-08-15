@@ -33,7 +33,15 @@ eval "$(pyenv virtualenv-init -)"
 
 # --- GK config
 source "$GK_DOTFILES/zsh/aliases"
+source "$GK_DOTFILES/shell-imports/node.sh"
+source "$GK_DOTFILES/shell-imports/python.sh"
+source "$GK_DOTFILES/shell-imports/db-dump.sh"
 
+# --- add hook to update tab color via printfs for Iterm2 whenever we change dirs
+source "$GK_DOTFILES/shell-imports/iterm2.sh"
+add-zsh-hook chpwd auto-tab-color
+# also run when first initializing shell
+auto-tab-color
 
 # --------------------
 # Aliases galore

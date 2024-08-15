@@ -19,6 +19,6 @@ GK_DOTFILES=/Users/gknoy/git/personal/dotfiles
 # export BAT_PAGER='less -R'
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
