@@ -38,75 +38,8 @@ source "$GK_DOTFILES/shell-imports/python.sh"
 source "$GK_DOTFILES/shell-imports/db-dump.sh"
 
 # --- add hook to update tab color via printfs for Iterm2 whenever we change dirs
-source "$GK_DOTFILES/shell-imports/iterm2.sh"
-add-zsh-hook chpwd auto-tab-color
-# also run when first initializing shell
-auto-tab-color
-
-# --------------------
-# Aliases galore
-# --------------------
-
-# --- nicer ls replacement
-# brew install eza
-alias ls='eza --git'
-alias la='eza --git --all'
-# alias ll='eza --git -F --long --sort=time'
-# alias lla='eza --git -F --long --sort=time --all'
-alias ll='eza --git -F --long'
-alias lla='eza --git -F --long --all'
-
-# --- git helpers
-# hide merged branches as they are clutter
-alias gb='git branch --sort=-committerdate --no-merge'
-# alias gb2='git reflog --date=relative|grep -E "(seconds|minutes|hours|days) ago"|grep "moving from"'
-alias st='git status'
-alias gd='git diff'
-alias gd-='git diff --cached'
-alias gau='git add -u'
-alias gup='git add -up'
-
-# Print what's on my current branch
-# Shortens names/times to help reduce width
-alias gh="git ls | grep --color=never -B60 -m1 'origin/dev' | grep -v 'origin/dev' |nl -w2 -s' '|sed 's/Gabriel Knoy/Me/; s/minutes ago/min ago/; s/hours ago/hrs ago/; s/seconds ago/sec ago/'"
-# TODO: develop new muscle memory so I can use github's 'gh' utility
-
-# --- formatting helpers
-alias pw="prettier --write"
-alias pww='git diff head --name-only | ag ".js\$" | xargs -L1 prettier --write'
-alias bb='git diff head --name-only |ag ".py" | xargs black'
-
-# FIXME: write zsh flavored `ib` and db dump helpers
-# source ~/bin/iterm2-badge.sh
-# source ~/bin/db-dump-aliases.sh
-
-# --- prettier diff
-# brew install colordiff
-alias diff='colordiff -u'
-
-# larger screen emacs window
-# alias emacs='/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient -n'
-# alias ec='/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient -c'
-# alias ee='/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient -n'
-
-alias ipython='ipython --colors=Linux'
-
-# --- less: for now, using 'bat' instead
-# dont' use brew version, it doesn't highlight well :D
-# for now, try using bat anyway
-# alias ccat='~/bin/vimcat'
-# alias less='/usr/share/vim/vim90/macros/less.sh'
-
-alias lnh='ln --help|head -n 1'
-
-# screen ruler ;)
-alias sr="echo '        10        20        30        40        50        60        70        80        90       100       110       120       130       140       150       160       170       180' && echo '.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^.........^'"
-
-# old: mpv --no-border --loop=inf --vf=scale=320:180:,dsize=320:200 --volume=80
-alias mph='mpv --no-border --loop-playlist=inf --autofit-larger=320x200 --volume=40'
-
-# in systems without the kazoo or iterm2's imgcat ;)
-# alias SUCCESS='echo -e "\n\e[0;32m-------\nSUCCESS\n-------\e[0m\n"'
-alias SUCCESS="echo -e '\n\nSUCCESS' && bash -c 'mpv ~/bin/kazoo-fanfare.mp3 --really-quiet --volume=85 &' && imgcat ~/Pictures/success-100.png || imgcat ~/Pictures/fail-100.png"
-
-alias shrug='echo "¯\_(ツ)_/¯"'
+if [[ -n "$ITERM_PROFILE" ]]; then
+  source "$GK_DOTFILES/shell-imports/iterm2.sh"
+  add-zsh-hook chpwd auto-tab-color
+  auto-tab-color  # also run when first initializing shell
+fi
