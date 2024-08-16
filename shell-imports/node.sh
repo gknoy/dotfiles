@@ -15,4 +15,5 @@ function vnode () {
 }
 
 # get this version from ${project} node-modules
-[[ -d ~/.node-envs/8.9.3 ]] && . ~/.node-envs/8.9.3/bin/activate 1>&2
+# ~/.node-envs/8.9.3/bin/activate 1>&2
+. ~/.node-envs/12.16.1/bin/activate 1>&2
