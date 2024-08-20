@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 # ----------------------
 # .zprofile - run at login pre-zshrc
 # ----------------------

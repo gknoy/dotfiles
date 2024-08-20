@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 #
 # .zshrc - Executes commands at the start of an interactive session.
 #
@@ -37,6 +38,7 @@ source "$GK_DOTFILES/shell-imports/node.sh"
 source "$GK_DOTFILES/shell-imports/python.sh"
 source "$GK_DOTFILES/shell-imports/db-dump.sh"
 source "$GK_DOTFILES/shell-imports/dev.sh"
+source "$GK_DOTFILES/shell-imports/aws.sh"
 
 # --- add hook to update tab color via printfs for Iterm2 whenever we change dirs
 if [[ -n "$ITERM_PROFILE" ]]; then

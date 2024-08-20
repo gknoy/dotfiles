@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 # (GK: copied from zprezto runcoms, original comments kept so it's easier to diff)
 #
 # Sets Prezto options.

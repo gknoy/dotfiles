@@ -1,4 +1,4 @@
-# -*- zsh -*-
+# -*- mode: sh -*-
 # (copied from zprezto runcoms)
 # Defines environment variables
 #

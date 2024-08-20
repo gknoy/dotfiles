@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 # --------------------
 # Aliases galore
 # --------------------
@@ -40,9 +41,10 @@ alias bb='git diff head --name-only |ag ".py" | xargs black'
 alias diff='colordiff -u'
 
 # larger screen emacs window
+# emacs-for-osx instructions symlink these to something already in the path
 # alias emacs='/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient -n'
-# alias ec='/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient -c'
-# alias ee='/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient -n'
+alias ec='emacsclient -c'
+alias ew='emacsclient -nw -c'
 
 alias ipython='ipython --colors=Linux'
 
