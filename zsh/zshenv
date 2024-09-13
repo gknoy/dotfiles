@@ -22,3 +22,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
+# Override word delimiters so word-navigation (and kill)
+# are lerss greedy, letting us navigate in a way that is
+# closer to editor behavior.
+# default:
+#      WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+# Remove _-/ characters:
+export WORDCHARS='*?[]~&!#$%^(){}<>'
