@@ -64,6 +64,9 @@ alias mph='mpv --no-border --loop-playlist=inf --autofit-larger=320x200 --volume
 
 # in systems without the kazoo or iterm2's imgcat ;)
 # alias SUCCESS='echo -e "\n\e[0;32m-------\nSUCCESS\n-------\e[0m\n"'
-alias SUCCESS="echo -e '\n\nSUCCESS' && bash -c 'mpv ${GK_DOTFILES}/media/kazoo-fanfare.mp3 --really-quiet --volume=85 &' && imgcat ~/Pictures/success-100.png || imgcat ~/Pictures/fail-100.png"
+alias SUCCESS="echo -e '\n\nSUCCESS' \
+               && bash -c 'mpv ${GK_DOTFILES}/media/kazoo-fanfare.mp3 --really-quiet --volume=85 &' \
+               && imgcat ~/Pictures/success-100.png \
+               || imgcat ~/Pictures/fail-100.png"
 
 alias shrug='echo "¯\_(ツ)_/¯"'
