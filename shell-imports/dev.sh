@@ -38,6 +38,26 @@ function _pytest() {
     fi
 }
 
+function _js-test() {
+    # assumes run in project repo ;)
+    ORG_REPO_PAIR=$(git config --get remote.origin.url | sed 's/.*://' | sed 's/.git$//')
+    is_personal="$(pwd | grep personal)"
+    repo_name=$(basename $(pwd))
+    if [[ -n "${is_personal}" ]]; then
+        # just run pytest directly for personal projects
+        jest $@
+    else
+        # Run non-personal things w/ work dev tooling
+        #   Note that this is very fragile, tested only for a few of our repos.
+        #   We can always manually define this to just call pytest directly when
+        #   the repo has a different testing scheme.
+        args="$@"
+        # wipe out vault token for tests so we can run off vpn
+        d_args="--volume '/dev/null:/srv/${repo_name}/.vault-token' --rm"
+        DOCKER_COMPOSE_RUN_ARGS="${d_args}" make test-js ARGS="${args}"
+    fi
+}
+
 
 function _cypress() {
     # get the most-recently-tagged dev + app images. In theory we shouldn't need both
