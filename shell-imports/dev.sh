@@ -74,3 +74,14 @@ function _cypress() {
     echo PULL_IMAGE=0 DOCKER_IMAGE_DEV_URL=${dev_img} DOCKER_IMAGE_APP_URL=${app_img} make cypress-test-ci TEST_ARGS="$@"
     PULL_IMAGE=0 DOCKER_IMAGE_DEV_URL=${dev_img} DOCKER_IMAGE_APP_URL=${app_img} make cypress-test-ci TEST_ARGS="$@"
 }
+
+
+fuction _pr-notes() {
+    # create a new notes file for this PR branch if one doesn't already exist
+    branch_name=$(git branch --show-current)
+    notes_file=~/git/notes/${branch_name}.md
+    if [ ! -f $notes_file ]; then
+        echo "# $branch_name" > $notes_file
+    fi
+    echo ${notes_file}
+}
