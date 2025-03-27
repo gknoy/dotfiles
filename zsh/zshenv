@@ -29,3 +29,7 @@ export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 #      WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 # Remove _-/ characters:
 export WORDCHARS='*?[]~&!#$%^(){}<>'
+
+# workaround for term colors for emacsclient
+# cf. https://www.reddit.com/r/emacs/comments/10lkwgr/emacsclient_in_terminal_doesnt_show_theme/
+COLORTERM=truecolor
