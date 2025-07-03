@@ -23,7 +23,7 @@
 [core]
 	# editor = vim
 	# editor = mg
-	editor = emacsclient -c -nw
+	editor = emacsclient -c
 	# attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | /usr/bin/less -RFX

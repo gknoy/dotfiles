@@ -32,6 +32,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# --- zoxide initialization
+eval "$(zoxide init zsh --cmd cd)"
+
 # --- GK config
 source "$GK_DOTFILES/zsh/aliases"
 source "$GK_DOTFILES/shell-imports/node.sh"

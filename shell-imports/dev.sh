@@ -17,6 +17,7 @@ function pr-link {
     echo "https://github.com/${ORG_REPO_PAIR}/compare/${GIT_BRANCH}?expand=1"
 }
 
+alias __pytest='pytest --verbose --pdbcls=IPython.terminal.debugger:Pdb'
 
 function _pytest() {
     # assumes run in project repo ;)
