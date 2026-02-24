@@ -33,3 +33,12 @@ export WORDCHARS='*?[]~&!#$%^(){}<>'
 # workaround for term colors for emacsclient
 # cf. https://www.reddit.com/r/emacs/comments/10lkwgr/emacsclient_in_terminal_doesnt_show_theme/
 COLORTERM=truecolor
+export COLORTERM
+
+GITSTATUS_LOG_LEVEL=DEBUG
+export GITSTATUS_LOG_LEVEL
+
+GITSTATUS_DEBUG_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/gitstatus-debug.log"
+export GITSTATUS_DEBUG_FILE
+
+export CURRENT_QUARTER="26-q1"

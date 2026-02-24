@@ -77,10 +77,13 @@ function _cypress() {
 }
 
 
-fuction _pr-notes() {
+function pr-notes() {
     # create a new notes file for this PR branch if one doesn't already exist
     branch_name=$(git branch --show-current)
-    notes_file=~/git/notes/${branch_name}.md
+    ticket_name=$(git branch --show-current | pyp '"-".join(x.split("-")[:2])')
+    notes_dir=~/git/notes/${CURRENT_QUARTER}/${ticket_name}
+    mkdir -p $notes_dir
+    notes_file=~/git/notes/${CURRENT_QUARTER}/${ticket_name}/${ticket_name}-notes.md
     if [ ! -f $notes_file ]; then
         echo "# $branch_name" > $notes_file
     fi

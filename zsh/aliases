@@ -70,3 +70,5 @@ alias SUCCESS="echo -e '\n\nSUCCESS' \
                || imgcat ~/Pictures/fail-100.png"
 
 alias shrug='echo "¯\_(ツ)_/¯"'
+
+alias zv='tar tzvf'
