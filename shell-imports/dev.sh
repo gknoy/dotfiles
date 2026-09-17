@@ -55,7 +55,7 @@ function _js-test() {
         args="$@"
         # wipe out vault token for tests so we can run off vpn
         d_args="--volume '/dev/null:/srv/${repo_name}/.vault-token' --rm"
-        DOCKER_COMPOSE_RUN_ARGS="${d_args}" make test-js ARGS="${args}"
+        make test-js DOCKER_COMPOSE_RUN_ARGS="${d_args}" ARGS="${args}"
     fi
 }
 
