@@ -8,10 +8,13 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-# grab any secrets like github tokens or comnpany-specific URLs
-source ~/.secrets
+# Optional local secrets, never stored in this repository.
+if [[ -f "$HOME/.secrets" ]]; then
+  source "$HOME/.secrets"
+fi
 
-GK_DOTFILES=/Users/gknoy/git/personal/dotfiles
+# Resolve the symlink to this file to find the checkout, regardless of location.
+export GK_DOTFILES="${GK_DOTFILES:-${${(%):-%x}:A:h:h}}"
 
 # 'bat' options. Not sure if I need
 # -F: quit if less than full screen

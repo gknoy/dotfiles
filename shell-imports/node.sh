@@ -14,6 +14,7 @@ function vnode () {
     fi
 }
 
-# get this version from ${project} node-modules
-# ~/.node-envs/8.9.3/bin/activate 1>&2
-. ~/.node-envs/12.16.1/bin/activate 1>&2
+# Preserve the existing default environment when it is installed.
+if [[ -f "$NODE_ENV_DIR/12.16.1/bin/activate" ]]; then
+    . "$NODE_ENV_DIR/12.16.1/bin/activate" 1>&2
+fi
